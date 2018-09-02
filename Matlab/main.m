@@ -3,7 +3,7 @@ clear
 close all
 
 %% Path to code and PDs
-code_path = '/media/anirudhsom/Drive2/for_today/SHREC10/ZZZ_ECCV18/Matlab'; addpath(code_path);
+code_path = ''; addpath(code_path);
 pd_path = [code_path, '/Datasets'];
 pd_files = {'Persistence_Diagrams_SHREC10_SIHKS.mat';'Persistence_Diagrams_SHREC10_HKS.mat';'Persistence_Diagrams_SHREC10_WKS.mat'}; 
 
