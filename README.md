@@ -1,8 +1,8 @@
 # Perturbed-Topological-Signature
 
-##C
+## Description:
 
-Matlab code to compute an extremely efficient metric between topological persistence diagrams by embedding them on to a Hilbert Sphere. If you use this code, please consider citing the following paper:
+
 
 >Som, A., Thopalli, K., Ramamurthy, K.N., Venkataraman, V., Shukla, A. and Turaga, P.,
 *Perturbation Robust Representations of Topological Persistence Diagrams.*
