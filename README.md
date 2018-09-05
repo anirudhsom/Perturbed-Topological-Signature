@@ -10,10 +10,10 @@ Matlab code to compute an extremely efficient metric between topological persist
 
 >Bibtex:
 ```
-@InProceedings{AnirudhCVPRW2016,
-author={Som, Anirudh and Thopalli, Kowshik and Ramamurthy, Karthikeyan Natesan and Venkataraman, Vinay and Shukla, Ankita and Turaga, Pavan},
-title={Perturbation Robust Representations of Topological Persistence Diagrams},
-booktitle={European Conference on Computer Vision},
+@InProceedings{Som_2018_ECCV,
+author = {Som, Anirudh and Thopalli, Kowshik and Natesan Ramamurthy, Karthikeyan and Venkataraman, Vinay and Shukla, Ankita and Turaga, Pavan},
+title = {Perturbation Robust Representations of Topological Persistence Diagrams},
+booktitle = {The European Conference on Computer Vision (ECCV)},
 month = {September},
 year = {2018}
 }
