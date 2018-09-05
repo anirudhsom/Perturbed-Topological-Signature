@@ -25,7 +25,6 @@ param.smooth_weight = 'no';
 
 %% Extracting PTS features from PDs
 for z = 1:length(pd_files)
-
     % Loading PDs
     pd_file_name = pd_files{z,1};
     load([pd_path,'/', pd_file_name]);
@@ -70,8 +69,8 @@ for z = 1:length(pd_files)
     %% Computing Distance Matrix
     fprintf('\n\n************ Computing Distance Matrix ************\n\n');
     total_shapes = length(PDs);
-    distmat1 = zeros(total_shapes,total_shapes);
-    distmat2 = zeros(total_shapes,total_shapes);
+    distmat_Chordal = zeros(total_shapes,total_shapes);
+    distmat_SubspaceAngle = zeros(total_shapes,total_shapes);
     time_taken_Chordal = [];
     time_taken_SubspaceAngle = [];
     
@@ -81,10 +80,10 @@ for z = 1:length(pd_files)
             pts2 = load([save_path,'/',PDs{j,1}]); pts2 = pts2.PTS;
             for k = 1:length(pts1)
                 tic;
-                distmat1(i,j) = distmat1(i,j) + distChordalGrass(pts1{k},pts2{k});
+                distmat_Chordal(i,j) = distmat_Chordal(i,j) + distChordalGrass(pts1{k},pts2{k});
                 time_taken_Chordal = [time_taken_Chordal,toc];
                 tic;
-                distmat2(i,j) = distmat2(i,j) + subspace_angles(pts1{k},pts2{k});
+                distmat_SubspaceAngle(i,j) = distmat_SubspaceAngle(i,j) + subspace_angles(pts1{k},pts2{k});
                 time_taken_SubspaceAngle = [time_taken_SubspaceAngle,toc];
             end
         end
@@ -92,11 +91,17 @@ for z = 1:length(pd_files)
             fprintf('#');
         end
     end
-    distmat1 = distmat1+distmat1';
-    distmat1(logical(eye(size(distmat1)))) = 0;
-    distmat2 = distmat2+distmat2';
-    distmat2(logical(eye(size(distmat2)))) = 0;
-    save([code_path,'/distmat_',descriptor,'.mat'],'distmat1','distmat2');
+    time_taken_Chordal = time_taken_Chordal(1:3000);
+    time_taken_SubspaceAngle = time_taken_SubspaceAngle(1:3000);
+    
+    distmat_Chordal = distmat_Chordal+distmat_Chordal';
+    distmat_Chordal(logical(eye(size(distmat_Chordal)))) = 0;
+    
+    distmat_SubspaceAngle = distmat_SubspaceAngle+distmat_SubspaceAngle';
+    distmat_SubspaceAngle(logical(eye(size(distmat_SubspaceAngle)))) = 0;
+    
+    save([code_path,'/distmat_',descriptor,'.mat'],'distmat_Chordal','distmat_SubspaceAngle');
+    save([code_path,'/time_taken_',descriptor,'.mat'],'time_taken_Chordal','time_taken_SubspaceAngle');
 end    
 
 %% 1-Nearest Neighbor Classification
@@ -104,21 +109,22 @@ fprintf('\n\n******** 1-Nearest Neighbor Classification ********\n\n');
 load([code_path,'/GroundTruth_SHREC2010.mat']);    
 
 load([code_path, '/distmat_SIHKS.mat']);
-distmat_Chordal = distmat1;
-distmat_SubspaceAngle = distmat2;
+distmat1 = distmat_Chordal;
+distmat2 = distmat_SubspaceAngle;
 
 load([code_path, '/distmat_HKS.mat']);
-distmat_Chordal = distmat_Chordal + distmat1;
-distmat_SubspaceAngle = distmat_SubspaceAngle + distmat2;
+distmat1 = distmat1 + distmat_Chordal;
+distmat2 = distmat2 + distmat_SubspaceAngle;
 
 load([code_path, '/distmat_WKS.mat']);
-distmat_Chordal = distmat_Chordal + distmat1;
-distmat_SubspaceAngle = distmat_SubspaceAngle + distmat2;
+distmat1 = distmat1 + distmat_Chordal;
+distmat2 = distmat2 + distmat_SubspaceAngle;
 
-[accuracy,~,~,~,~] = Evaluation_DistanceMatrix(distmat_Chordal,GroundTruth);
+labels = cell2mat(PDs(:,2));
+[accuracy] = NearestNeighbor(distmat1,labels);
 disp(['1-NN Classification Accuracy using Chordal metric = ',num2str(accuracy)]);
-disp(['Average time taken to use Chordal metric = ',num2str(mean(time_taken_Chordal(1:3000)))]);
+disp(['Average time taken to use Chordal metric = ',num2str(mean(time_taken_Chordal))]);
 fprintf('\n');
-[accuracy,~,~,~,~] = Evaluation_DistanceMatrix(distmat_Chordal,GroundTruth);
+[accuracy] = NearestNeighbor(distmat2,labels);
 disp(['1-NN Classification Accuracy using Subspace Angle metric = ',num2str(accuracy)]);
-disp(['Average time taken to use Subspace Angle metric = ',num2str(mean(time_taken_SubspaceAngle(1:3000)))]);
+disp(['Average time taken to use Subspace Angle metric = ',num2str(mean(time_taken_SubspaceAngle))]);
