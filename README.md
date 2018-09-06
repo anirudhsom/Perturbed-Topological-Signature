@@ -1,4 +1,4 @@
-# Perturbed Topological Signature
+## Perturbed Topological Signature
 
 Matlab and Python code to compute perturbed topological signatures (PTS), an efficient topological representation that lies on the Grassmann manifold. If you use this code, please consider citing the following paper:
 
@@ -16,6 +16,6 @@ month = {September},
 year = {2018}
 }
 ```
-# Useful Links
+## Useful Links
 
 [Paper](https://arxiv.org/pdf/1807.10400.pdf)   |   [Supplementary](http://www.public.asu.edu/~asom2/ECCV18_Supplementary.pdf)   |   [Poster](http://www.public.asu.edu/~asom2/ECCV18_Poster.pdf)
