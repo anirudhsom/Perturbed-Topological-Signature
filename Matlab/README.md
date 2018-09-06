@@ -19,3 +19,9 @@ The code was developed using [Matlab-2017b](https://www.mathworks.com/products/n
 * [PDFs_from_PDs.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/PDFs_from_PDs.m) - This function takes the set of randomly perturbed PDs and parameters as input. The function generates the 2D probability density function (PDF) of the PDs using kernel density estimation.
 
 * [map_to_Grassmannian.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/map_to_Grassmannian.m) - This function takes the set of 2D PDFs and parameters as input. The function maps the set of 2D PDFs to a point on the Grassmann manifold.
+
+* [subspace_angles.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/subspace_angles.m) - This function computes the minimal geodesic distance between two points on the Grassmann manifold.
+
+* [distChordalGrass.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/distChordalGrass.m) - This function computes the chordal distance between two points on the Grassmann manifold.
+
+* [NearestNeighbor.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/NearestNeighbor.m) - This function takes the distance matrix and labels as input and returns the one nearest neighbor classification accuracy. 
