@@ -16,6 +16,6 @@ month = {September},
 year = {2018}
 }
 ```
-## Other useful links
+# Useful Links
 
 [Paper](https://arxiv.org/pdf/1807.10400.pdf)   |   [Supplementary](http://www.public.asu.edu/~asom2/ECCV18_Supplementary.pdf)   |   [Poster](http://www.public.asu.edu/~asom2/ECCV18_Poster.pdf)
