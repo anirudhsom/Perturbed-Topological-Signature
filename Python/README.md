@@ -23,4 +23,4 @@ Required python packages -
 
 * [PTS_functions.py](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/PTS_functions.py) - This file contains all the functions to compute PTS representation from a PD. The different functions in this file are described below - 
 
-** asdasd
+  * asdasd
