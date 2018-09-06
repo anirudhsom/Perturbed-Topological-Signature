@@ -14,3 +14,4 @@ The code was developed using [Matlab-2017b](https://www.mathworks.com/products/n
 
 * [Normalize_PD.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/Normalize_PD.m) - This function normalizes the PD (passed as input) w.r.t. the largest death-time in the PD. The function assumes that the PD has the following structure [birth-time, death-time], with death-time > birth-time. 
 
+* [Random_perturbation.m](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Matlab/Random_perturbation.m) - This function takes the normalized PD and other parameters as input. This function generates a set of randomly perturbed PDs. Each randomly perturbed PD has its points shifted by a certain amount w.r.t. the original PD.
