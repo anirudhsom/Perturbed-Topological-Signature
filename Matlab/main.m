@@ -106,7 +106,6 @@ end
 
 %% 1-Nearest Neighbor Classification
 fprintf('\n\n******** 1-Nearest Neighbor Classification ********\n\n');
-load([code_path,'/GroundTruth_SHREC2010.mat']);    
 
 load([code_path, '/distmat_SIHKS.mat']);
 distmat1 = distmat_Chordal;
