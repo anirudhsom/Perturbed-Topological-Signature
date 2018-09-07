@@ -26,3 +26,5 @@ Required python packages -
   * Normalize_PD - This function normalizes the PD (passed as input) w.r.t. the largest death-time in the PD. The function assumes that the PD has the following structure [birth-time, death-time], with death-time > birth-time.
   
   * Random_perturbation - This function takes the normalized PD and parameters as input. This function generates a set of randomly perturbed PDs. Each randomly perturbed PD has its points shifted by a certain amount w.r.t. the original PD.
+  
+  * PDFs_from_PDs - This function takes the set of randomly perturbed PDs and parameters as input. The function generates the 2D probability density function (PDF) of the PDs using kernel density estimation.
