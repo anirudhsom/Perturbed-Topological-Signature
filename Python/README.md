@@ -28,3 +28,8 @@ Required python packages -
   * Random_perturbation - This function takes the normalized PD and parameters as input. This function generates a set of randomly perturbed PDs. Each randomly perturbed PD has its points shifted by a certain amount w.r.t. the original PD.
   
   * PDFs_from_PDs - This function takes the set of randomly perturbed PDs and parameters as input. The function generates the 2D probability density function (PDF) of the PDs using kernel density estimation.
+  
+  * map_to_Grassmannian - This function takes the set of 2D PDFs and parameters as input. The function maps the set of 2D PDFs to a point on the Grassmann manifold.
+
+* [utils.py](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/utils.py) - This file contains functions for the different Grassmannian metrics (subspace_angles, distChordalGrass) to compare PTS representations, NearestNeighbor function to calculate the 1-NN classification accuracy and other supporting functions.
+
