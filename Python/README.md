@@ -9,8 +9,8 @@ The code was written using [Python 3.x](https://www.python.org/downloads/).
 Required python packages - 
 * os
 * time
-* numpy
 * scipy
+* numpy
 * pickle
 
 ## Folder contents
@@ -21,6 +21,8 @@ Required python packages -
 
 * [main.ipynb](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/main.ipynb) - This file is the jupyter notebook implementation of the [main.py](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/main.py) file.
 
-* [PTS_functions.py](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/PTS_functions.py) - This file contains all the functions to compute PTS representation from a PD. The different functions in this file are described below - 
+* [PTS_functions.py](https://github.com/anirudhsom/Perturbed-Topological-Signature/blob/master/Python/PTS_functions.py) - This file contains all the functions needed to compute PTS representation from a PD. The different functions in this file are described below - 
 
-  * asdasd
+  * Normalize_PD - This function normalizes the PD (passed as input) w.r.t. the largest death-time in the PD. The function assumes that the PD has the following structure [birth-time, death-time], with death-time > birth-time.
+  
+  * Random_perturbation - This function takes the normalized PD and parameters as input. This function generates a set of randomly perturbed PDs. Each randomly perturbed PD has its points shifted by a certain amount w.r.t. the original PD.
