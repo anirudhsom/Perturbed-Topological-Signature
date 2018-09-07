@@ -90,15 +90,6 @@ def PDFs_from_PDs(PD,param):
         for i in range(1+m):
             PD_temp = PD[i].T
             
-            if PD_temp.shape[1]==2:
-                temp = np.array([[0,0]])
-                PD_temp = np.concatenate((PD_temp,temp.T),axis = 1)
-            elif PD_temp.shape[1]==1:
-                temp1 = np.array([[0,0]])
-                temp2 = np.array([[1,0]])
-                PD_temp = np.concatenate((PD_temp,temp1.T),axis = 1)
-                PD_temp = np.concatenate((PD_temp,temp2.T),axis = 1)
-            
             kernel = stats.gaussian_kde(PD_temp,sigma)
             Z = np.reshape(kernel(positions).T,X1.shape)
             HeatMap = HeatMap + Z
