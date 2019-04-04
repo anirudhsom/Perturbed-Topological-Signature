@@ -16,6 +16,6 @@ Matlab and Python code to compute perturbed topological signatures (PTS), an eff
   year={2018}
 }
 ```
-## Useful Links
+### Links to paper and supplementary: 
 
 [Paper](https://arxiv.org/pdf/1807.10400.pdf)   |   [Supplementary](http://www.public.asu.edu/~asom2/ECCV18_Supplementary.pdf)   |   [Poster](http://www.public.asu.edu/~asom2/ECCV18_Poster.pdf)
